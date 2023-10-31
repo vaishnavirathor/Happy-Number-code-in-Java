@@ -1,0 +1,27 @@
+***Intersection of two arrays ques 349*******
+class Solution {
+    public int[] intersection(int[] nums1, int[] nums2) {
+        HashMap<Integer,Integer> s=new HashMap<>();
+        Arrays.sort(nums1);
+        Arrays.sort(nums2);
+        int i=0,j=0;
+        while(i<nums1.length && j<nums2.length){
+            if(nums1[i]==nums2[j] && !s.containsKey(nums1[i])){
+                s.put(nums1[i],1);
+                i++;
+                j++;
+            }
+            else if(nums1[i]>nums2[j]) j++;
+            else if(nums1[i]<nums2[j]) i++;
+            else{
+                i++;
+                j++;
+            }
+        }
+        int[] arr=new int[s.size()];
+        int x=0;
+        for(int k:s.keySet())
+            arr[x++]=k;
+        return arr;
+    }
+}
