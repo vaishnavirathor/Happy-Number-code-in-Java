@@ -1,0 +1,30 @@
+****Trapping Rain Water****
+class Solution {
+    public int trap(int[] h) {
+        int n=h.length;
+        if(n==0)return 0;
+     int a1[]=new int [n];
+     int a2[]=new int [n];
+
+        a1[0]=h[0];
+
+  for(int i=1;i<n;i++)
+  {
+      a1[i]=Math.max(a1[i-1],h[i]);
+  }
+
+ a2[n-1]=h[n-1];
+ 
+  for(int j=n-2;j>=0;j--)
+  {
+      a2[j]=Math.max(a2[j+1],h[j]);
+  }
+
+    int l=0;
+        for(int j=0;j<n;j++){
+        l+=Math.min(a1[j],a2[j])-h[j];
+       
+        }
+        return l;
+    }
+}
