@@ -1,0 +1,13 @@
+*********Recover binary tree*********
+class Solution {
+    private TreeNode prev = null , first = null , sec = null;
+    public void recoverTree(TreeNode root) {
+        helper(root,root.val,int count=-1);
+    }
+    public void help(TreeNode root,int v,int count)
+    {
+        if(root==null)return;
+        if
+        help(root.left,v,count=0);
+        help(root.right,v,count=1)
+    }
