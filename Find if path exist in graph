@@ -1,0 +1,30 @@
+*******Find if path exist in graph******
+class Solution {
+    public boolean validPath(int n, int[][] edges, int source, int destination) {
+        Queue<Integer> q=new LinkedList<>();
+        ArrayList<ArrayList<Integer>> arr=new ArrayList<>();
+        for(int i=0;i<n;i++)
+            arr.add(new ArrayList<>());
+        for(int i[]: edges)
+        {
+            arr.get(i[0]).add(i[1]);
+            arr.get(i[1]).add(i[0]);
+        }
+        boolean b[]=new boolean[n];
+        q.add(source);
+        
+        while(!q.isEmpty())
+        {
+            int x=q.remove();
+            if(b[x]==false)
+            {
+                if(x==destination)
+                    return true;
+                b[x]=true;
+                for(int i=0;i<arr.get(x).size(); i++)
+                    q.add(arr.get(x).get(i));
+            }
+        }
+        return false;
+    }
+}
