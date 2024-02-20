@@ -1,0 +1,9 @@
+*******Power of three********
+class Solution {
+  public boolean isPowerOfThree(int n) {
+     System.out.println( Math.log10(n));
+      System.out.println( Math.log10(3));
+       return (Math.log10(n) / Math.log10(3)) % 1 == 0;
+   }
+ 
+}
