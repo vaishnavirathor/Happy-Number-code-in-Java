@@ -1,0 +1,14 @@
+*****best time to buya nad sell stocks***
+***class Solution {
+    public int maxProfit(int[] p) {
+        int min=Integer.MAX_VALUE;
+        int profit=0;
+  for(int i=0;i<p.length;i++)
+  {
+min=Math.min(p[i],min);
+profit=Math.max(profit,(p[i]-min));
+  }
+return profit;
+
+    }
+}
