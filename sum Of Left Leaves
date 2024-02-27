@@ -1,0 +1,21 @@
+*************sum Of Left Leaves*********
+class Solution {
+   int sum=0;
+    public int sumOfLeftLeaves(TreeNode root) {
+       sum( root);
+       return sum; 
+    }
+      public  void sum(TreeNode root){
+        if(root==null)return;
+      
+      if(root.left!=null){
+        if(root.left.left==null && root.left.right==null){
+            sum+=root.left.val;
+        }
+        }
+        sum(root.left);
+        sum(root.right);
+
+        }
+
+    }
