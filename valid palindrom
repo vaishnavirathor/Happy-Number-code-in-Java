@@ -1,0 +1,20 @@
+class Solution {
+    public boolean isPalindrome(String s) {
+        
+       String s1 = s.replaceAll("[^A-Za-z0-9]", "");
+       s1=s1.toLowerCase();
+       System.out.print(s1);
+       return pal(s1,0,s1.length()-1);
+    }
+    public static boolean pal(String s1, int i,int j)
+    {
+    
+        if(i>j){
+         return true;   
+        }
+        if(s1.charAt(i)!=s1.charAt(j))return false;
+       return pal(s1,++i,--j);
+
+    }
+
+}
