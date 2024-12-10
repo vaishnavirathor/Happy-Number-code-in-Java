@@ -1,0 +1,58 @@
+URL: https://leetcode.com/problems/maximum-points-you-can-obtain-from-cards/submissions/1475578767/
+
+BRUTE-FORCE
+
+class Solution {
+    public int maxScore(int[] cr, int k) {
+
+        int max=Integer.MIN_VALUE;
+        int n=cr.length;
+
+        for(int i=0;i<=k;i++)
+        {
+            int sum=0;
+            for(int l=0;l<i;l++)
+            {
+                sum+=cr[l];
+            }
+            for(int j=n-1;j>=n-(k-i);j--)
+            {
+                sum+=cr[j];
+            }
+            max=Math.max(sum,max);
+
+        }
+
+return max;
+
+    }
+}
+
+OPTIMIZED- SOLUTION
+
+class Solution {
+    public int maxScore(int[] cr, int k) {
+
+        int max=Integer.MIN_VALUE,n=cr.length;
+       int l_sum=0,r_sum=0;
+
+    for(int i=0;i<k;i++)
+    {
+        l_sum+=cr[i];
+    }
+    // l_sum=6
+    int l=n-1;
+    max=Math.max(max,l_sum);
+    for(int i=k-1;i>=0;i--)
+    {
+        l_sum-=cr[i];
+        r_sum+=cr[l--];
+        max=Math.max(max,l_sum+r_sum);
+    }
+
+
+
+return max;
+
+    }
+}
